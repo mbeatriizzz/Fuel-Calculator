@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+import { Texto } from './components/CampoTexto';
+import { Icone } from './components/Icone';
+import { InputEtanol } from './components/InputEtanol';
+import { InputGasolina } from './components/InputGasolina';
+
 function App() {
+  const [precoGasolina, setPrecoGasolina] = useState('');
+  const [precoEtanol, setPrecoEtanol] = useState('');
+
+  const calcularPrecoCombustivel = (e) => {
+    e.preventDefault();
+    let calculo = (precoEtanol / precoGasolina);
+
+    if(!precoEtanol || !precoGasolina || precoGasolina === 0 || precoEtanol === 0) {
+      alert("Valores não numéricos ou zero. Verifique e tente novamente.")
+    } else if(calculo > 0.7) {
+      alert(`O cálculo será igual a ${calculo.toFixed(2)}. Portanto, compensa mais abastecer com gasolina.`);
+    } else {
+      alert(`O cálculo será igual a ${calculo.toFixed(2)}. Portanto, compensa mais abastecer com etanol.`);
+    }
+
+    setPrecoEtanol('');
+    setPrecoGasolina('');
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="area-geral">
+          <Icone />
+          <Texto />
+
+          <div className="campos-combustiveis">
+            <InputEtanol  value={precoEtanol}  onChange={(e) => setPrecoEtanol(e.target.value)} />
+            <InputGasolina value={precoGasolina} onChange={(e) => setPrecoGasolina(e.target.value)}/>
+          </div>
+          <button onClick={calcularPrecoCombustivel} title="Fazer cálculo">Calcular</button>
+        </div>
+    </>
   );
 }
 
