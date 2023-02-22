@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/calculadora-combustivel/static/css/main.e7f8754f.css",
+    "main.js": "/calculadora-combustivel/static/js/main.431c43dc.js",
+    "index.html": "/calculadora-combustivel/index.html",
+    "main.e7f8754f.css.map": "/calculadora-combustivel/static/css/main.e7f8754f.css.map",
+    "main.431c43dc.js.map": "/calculadora-combustivel/static/js/main.431c43dc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7f8754f.css",
+    "static/js/main.431c43dc.js"
+  ]
+}
