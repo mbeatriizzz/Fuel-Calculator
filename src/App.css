@@ -35,6 +35,6 @@ button {
 @media (min-width: 320px) and (max-width: 375px) {
     button {
         margin: none;
-        width: 12rem;
+        width: 9rem;
     }
 }
